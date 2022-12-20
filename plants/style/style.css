@@ -131,3 +131,31 @@ ul li {
 .header__link:hover::after {
   width: 100%;
 }
+
+.navbar__switcher {
+  display: none;
+}
+
+.navbar__switcher:checked+.header__link {
+  font-weight: 700;
+  color: #E06733;
+}
+.navbar__switcher:checked+.header__item .header__link {
+  font-weight: 700;
+  color: #E06733;
+}
+.navbar__switcher:checked+.header__item .header__link:hover {
+  opacity: 1;
+  cursor: unset;
+}
+.navbar__switcher:checked+.header__item .header__link::after {
+  width: 100%;
+}
+/* .navbar__switcher:checked+.header__link::after {
+  width: 100%;
+}
+
+.navbar__switcher:checked+.header__link:hover {
+  opacity: 1;
+  cursor: unset;
+} */

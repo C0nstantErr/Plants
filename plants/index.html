@@ -19,13 +19,18 @@
             <img src="./img/icons/logo.svg" alt="Plants Logo">
             <span class="logo__text">Plants</span>
           </div>
-          <nav class="header__navbar">
+          <nav class="header__navbar navbar">
             <ul class="header__list">
-              <li class="header__item"><a class="header__link" href="#">Home</a></li>
-              <li class="header__item"><a class="header__link" href="#">About us</a></li>
-              <li class="header__item"><a class="header__link" href="#">Service</a></li>
-              <li class="header__item"><a class="header__link" href="#">Price</a></li>
-              <li class="header__item"><a class="header__link" href="#">Contacts</a></li>
+              <input class="navbar__switcher" id="switcher1" type="radio" name="navigation" checked>
+              <li class="header__item"><label for="switcher1"><a class="header__link" href="#">Home</a></label></li>
+              <input class="navbar__switcher" id="switcher2" type="radio" name="navigation">
+              <li class="header__item"><label for="switcher2"><a class="header__link" href="#">About us</a></label></li>
+              <input class="navbar__switcher" id="switcher3" type="radio" name="navigation">
+              <li class="header__item"><label for="switcher3"><a class="header__link" href="#">Service</a></label></li>
+              <input class="navbar__switcher" id="switcher4" type="radio" name="navigation">
+              <li class="header__item"><label for="switcher4"><a class="header__link" href="#">Price</a></label></li>
+              <input class="navbar__switcher" id="switcher5" type="radio" name="navigation">
+              <li class="header__item"><label for="switcher5"><a class="header__link" href="#">Contacts</a></label></li>
             </ul>
           </nav>
         </div>

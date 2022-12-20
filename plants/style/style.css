@@ -1,0 +1,54 @@
+/* -----Style reset----- */
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  line-height: 1;
+  font-size: 16px;
+  font-family: "Inter", sans-serif;
+}
+
+a,
+a:visited,
+a:hover {
+  text-decoration: none;
+}
+
+:focus,
+:active,
+a:focus,
+a:active {
+  outline: none;
+}
+
+input,
+button { 
+  font-family: inherit;
+}
+
+h1,
+h2,
+h3 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+ul li {
+  list-style: none;
+}
+/* ---------------------- */
+

@@ -14,28 +14,45 @@
   <div class="wrapper">
     <header class="header">
       <div class="container">
-        <div class="header__row">
-          <div class="header__logo">
-            <img src="./img/icons/logo.svg" alt="Plants Logo">
-            <span class="logo__text">Plants</span>
-          </div>
-          <nav class="header__navbar navbar">
-            <ul class="header__list">
-              <input class="navbar__switcher" id="switcher1" type="radio" name="navigation" checked>
-              <li class="header__item"><label for="switcher1"><a class="header__link" href="#">Home</a></label></li>
-              <input class="navbar__switcher" id="switcher2" type="radio" name="navigation">
-              <li class="header__item"><label for="switcher2"><a class="header__link" href="#">About us</a></label></li>
-              <input class="navbar__switcher" id="switcher3" type="radio" name="navigation">
-              <li class="header__item"><label for="switcher3"><a class="header__link" href="#">Service</a></label></li>
-              <input class="navbar__switcher" id="switcher4" type="radio" name="navigation">
-              <li class="header__item"><label for="switcher4"><a class="header__link" href="#">Price</a></label></li>
-              <input class="navbar__switcher" id="switcher5" type="radio" name="navigation">
-              <li class="header__item"><label for="switcher5"><a class="header__link" href="#">Contacts</a></label></li>
-            </ul>
-          </nav>
-        </div>
+        <nav class="header__navbar">
+          <a class="logo" href="#">Plants</a>
+          <ul class="header__list">
+            <li class="header__item"><a class="header__link" href="#">Home</a></li>
+            <li class="header__item"><a class="header__link" href="#">About us</a></li>
+            <li class="header__item"><a class="header__link" href="#">Service</a></li>
+            <li class="header__item"><a class="header__link" href="#">Price</a></li>
+            <li class="header__item"><a class="header__link" href="#">Contacts</a></li>
+          </ul>
+        </nav>
       </div>
     </header>
+    <main>
+      <section class="welcome">
+        <div class="container">
+          <div class="welcome__row">
+            <div class="welcome__decor">
+            </div>
+            <div class="welcome__info">
+              <h1 class="welcome__title">We grow <strong>plants</strong> and give you oxygen</h1>
+              <p class="welcome__text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+              <button class="welcome__btn button">Learn more</button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="about">
+        <div class="container">
+          <div class="about__row">
+            <div class="about__info">
+              <h2 class="about__title">We are <span>professional <br> experienced</span> gardeners</h2>
+              <p class="about__text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+            </div>
+            <div class="about__decor"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer></footer>
   </div>
 </body>
 </html>

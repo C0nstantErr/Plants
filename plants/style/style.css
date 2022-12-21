@@ -264,3 +264,49 @@ ul li {
   border: 1px solid rgba(224, 103, 51, 0.7);
   box-shadow: 0px 0px 8px rgba(224, 103, 51, 0.6);
 }
+
+.service__content {
+  width: 100%;
+}
+
+.service__row {
+ display: flex;
+ flex-flow: row wrap;
+ column-gap: 116px;
+ row-gap: 55px;
+}
+.service__item {
+  width: 330px;
+  height: 450px;
+}
+
+.service__info {
+  width: 100%;
+  min-height: 100px;
+  border: 1px solid #e3e1d5;
+  border-radius: 0 0 20px 20px;
+}
+.service__img {
+  max-width: 330px;
+  max-height: 350px;
+  overflow: hidden;
+}
+
+.service__img img {
+  width: 100%;
+  border-radius: 20px 20px 0px 0px;
+}
+
+.service_subtitle {
+  margin: 10px 0;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  color: #e06733;
+}
+
+.service__description {
+  color: #717171;
+  line-height: 20px;
+  text-align: center;
+}

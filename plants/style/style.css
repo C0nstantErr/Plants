@@ -122,7 +122,7 @@ ul li {
   opacity: 0.8;
   font-weight: 700;
 }
-/* Welcome section */
+/* section welcome  */
 .welcome {
   width: 100%;
   padding: 62px 0 62.64px;
@@ -144,6 +144,7 @@ ul li {
   flex: 0 1 549px;
   padding: 36px 0 31.36px 0;
 }
+
 .welcome__title {
   margin: 0 0 42px 0;
   font-weight: 700;
@@ -156,6 +157,7 @@ ul li {
   color: #499A18;
   font-weight: 700;
 }
+
 .welcome__text {
   margin: 0 0 48px 0;
   font-size: 20px;
@@ -180,4 +182,42 @@ ul li {
 .welcome__btn:hover {
   background-color: #E06733;
   color: #fff;
+}
+/* section about */
+.about {
+  padding: 93px 0 94px 0;
+  background-color: #fff;
+}
+
+.about__row {
+  display: flex;
+}
+
+.about__info {
+  flex: 0 1 605px;
+  padding: 68px 0 0 0;
+}
+
+.about__decor {
+  height: 479px;
+  flex: 1 1 auto;
+  background: url("../img/decor/about_houseplant.png") right top no-repeat;
+}
+
+.about__title {
+  margin: 0 0 40px 0;
+  font-family: 'Inika', serif;
+  color: #499A18;
+  font-size: 40px;
+  line-height: 52px;
+}
+
+.about__title span {
+  color: #E06733;
+}
+
+.about__text {
+  font-size: 20px;
+  line-height: 30px;
+  color: #636060;
 }

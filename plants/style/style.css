@@ -52,6 +52,10 @@ ul li {
   list-style: none;
 }
 /* ---------------------- */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
 .header {
   width: 100%;
   height: 134px;
@@ -65,36 +69,41 @@ ul li {
   margin: 0 auto;
 }
 
-.header__row {
+.header__navbar {
   display: flex;
   height: 100%;
   justify-content: space-between;
   align-items: center;
 }
 
-.header__logo {
-  height: 50px;
-  display: flex;
-  align-items: center;
+.header__list {
+  font-size: 0;
 }
 
-.header__logo img {
+.logo,
+.header__link {
+  display: inline-block;
+  color: #010201;
+}
+
+.logo {
+  position: relative;
+  padding: 0 0 0 20px;
+  line-height: 20px;
+}
+
+.logo::before {
+  content: url('../img/icons/logo.svg');
+  position: absolute;
+  top: -4px;
+  left: 0;
+  display: block;
   width: 20px;
   height: 20px;
-  align-self: flex-start;
-  margin-top: 13px;
-}
-
-.logo__text {
-  display: inline-block;
-  line-height: 50px;
-}
-
-.header__list {
-  display: flex;
 }
 
 .header__item {
+  display: inline-block;
   margin: 0 46px 0 0;
 }
 
@@ -103,31 +112,72 @@ ul li {
 }
 
 .header__link {
-  position: relative;
-  display: inline-block;
+  font-size: 16px;
   line-height: 50px;
-  color: #010201;
-  transition: 0.2s all ease-in;
+  transition: 0.1s all ease-in;
 }
 
 .header__link:hover {
   color: #E06733;
   opacity: 0.8;
+  font-weight: 700;
 }
-
-.header__link::after {
-  content: '';
-  position: absolute;
-  bottom: 13px;
-  left: 0;
-  display: block;
-  width: 0%;
-  height: 2.5px;
-  border-radius: 5px;
-  background-color: #e067338c;
-  transition: 0.2s width ease-out;
-}
-
-.header__link:hover::after {
+/* Welcome section */
+.welcome {
   width: 100%;
+  padding: 62px 0 62.64px;
+  background-color: #EDF2EC;
+}
+
+.welcome__row {
+  display: flex;
+}
+
+.welcome__decor {
+  flex: 1 1 auto;
+  background-image: url("../img/decor/welcome_leafs.png");
+  background-position: 0 0;
+  background-repeat: no-repeat;
+}
+
+.welcome__info {
+  flex: 0 1 549px;
+  padding: 36px 0 31.36px 0;
+}
+.welcome__title {
+  margin: 0 0 42px 0;
+  font-weight: 700;
+  font-size: 45px;
+  line-height: 50px;
+  color: #717171;
+}
+
+.welcome__title strong {
+  color: #499A18;
+  font-weight: 700;
+}
+.welcome__text {
+  margin: 0 0 48px 0;
+  font-size: 20px;
+  line-height: 35px;
+  color: #636060;
+}
+
+.welcome__btn {
+  width: 158px;
+  height: 44px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #000000;
+  border: 2px solid #E06733;
+  border-radius: 10px;
+  transition: all 0.07s ease-out;
+  cursor: pointer;
+}
+
+.welcome__btn:hover {
+  background-color: #E06733;
+  color: #fff;
 }

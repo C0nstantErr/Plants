@@ -176,7 +176,7 @@ ul li {
   border: 2px solid #E06733;
   border-radius: 10px;
   transition: all 0.07s ease-out;
-  cursor: pointer;
+  
 }
 
 .welcome__btn:hover {
@@ -204,12 +204,14 @@ ul li {
   background: url("../img/decor/about_houseplant.png") right top no-repeat;
 }
 
-.about__title {
-  margin: 0 0 40px 0;
+.title {
   font-family: 'Inika', serif;
   color: #499A18;
   font-size: 40px;
   line-height: 52px;
+}
+.about__title {
+  margin: 0 0 40px 0;
 }
 
 .about__title span {
@@ -220,4 +222,45 @@ ul li {
   font-size: 20px;
   line-height: 30px;
   color: #636060;
+}
+/* section Service */
+.service {
+  width: 100%;
+  padding: 40px 0 121px 0;
+  background: #edf2ec;
+}
+
+.service__header {
+  display: flex;
+  max-width: 1007px;
+}
+
+.service__title {
+  margin: 0 142px 90px 0;
+}
+
+.service__button {
+  width: 161px;
+  height: 50px;
+  margin: 29px 38px 0 0;
+  border: 1px solid rgba(224, 103, 51, 0.75);
+  border-radius: 5px;
+  font-family: 'Inika', serif;
+  font-size: 20px;
+  line-height: 26px;
+  text-align: center;
+  color: rgba(224, 103, 51, 0.75);
+  background: #edf2ec;
+  transition: all 0.1s ease-in-out;
+  cursor: pointer;
+}
+
+.service__button:last-child {
+  margin-right: 0;
+}
+
+.service__button:hover {
+  color: rgb(224, 103, 51);
+  border: 1px solid rgba(224, 103, 51, 0.7);
+  box-shadow: 0px 0px 8px rgba(224, 103, 51, 0.6);
 }

@@ -428,9 +428,14 @@ ul li {
 }
 
 .prices__button {
+  position: relative;
   align-self: flex-end;
   width: 162px;
   height: 50px;
   background-color: #fff;
   font-weight: 700;
+}
+
+.prices__button:active {
+  top: 1px;
 }

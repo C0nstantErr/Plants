@@ -440,3 +440,31 @@ ul li {
 .prices__button:active {
   top: 1px;
 }
+/* section Contacts */
+.contact {
+  width: 100%;
+  background-color: #edf2ec;
+  padding: 60px 0 0 0;
+}
+
+.contact .container {
+  background-image: url('../img/decor/contact_woman.png');
+  background-position: bottom left;
+  background-repeat: no-repeat;
+}
+.contact__title {
+  margin: 0 0 37px 0;
+  font-family: 'Inika';
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 52px;
+  color: #499A18;
+  text-align: center;
+}
+
+.contact__body {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  min-height: 402px;
+}

@@ -546,3 +546,44 @@ ul li {
   background-repeat: no-repeat;
   background-position: center;
 }
+/* footer */
+.footer {
+  width: 100%;
+  height: 130px;
+  padding: 40px 0;
+}
+
+.footer__row {
+  display: flex;
+  height: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer__item {
+  display: flex;
+  align-items: center;
+}
+.footer__text {
+  display: block;
+  margin: 0 20px 0 0;
+  font-size: 20px;
+  line-height: 50px;
+}
+
+.footer__link {
+  align-self: center;
+}
+
+.footer__media__link {
+  display: flex;
+}
+
+.media__link {
+  display: block;
+  margin: 0 20px 0 0;
+}
+
+.media__link:last-child {
+  margin-right: 0;
+}

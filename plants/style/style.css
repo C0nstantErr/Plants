@@ -560,10 +560,10 @@ ul li {
   align-items: center;
 }
 
-.footer__item {
+.footer__info {
   display: flex;
-  align-items: center;
 }
+
 .footer__text {
   display: block;
   margin: 0 20px 0 0;
@@ -571,19 +571,24 @@ ul li {
   line-height: 50px;
 }
 
-.footer__link {
+.gh-link {
+  display: block;
   align-self: center;
 }
 
-.footer__media__link {
+.media-list {
   display: flex;
 }
 
-.media__link {
-  display: block;
+.media-list__item {
   margin: 0 20px 0 0;
 }
 
-.media__link:last-child {
+.media-list__item:last-child {
   margin-right: 0;
 }
+
+.media-list__link {
+  display: block;
+}
+

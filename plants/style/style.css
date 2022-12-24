@@ -52,15 +52,14 @@ ul li {
   list-style: none;
 }
 /* ---------------------- */
-.wrapper {
-  display: flex;
-  flex-direction: column;
+.bg_wrapper {
+  background-color: #EDF2EC;
 }
+
 .header {
   width: 100%;
   height: 134px;
   font-family: 'Inika', serif;
-  background-color: #EDF2EC;
 }
 
 .container {
@@ -90,6 +89,7 @@ ul li {
   position: relative;
   padding: 0 0 0 20px;
   line-height: 20px;
+  transition: all 0.1s ease-in;
 }
 
 .logo::before {
@@ -100,6 +100,10 @@ ul li {
   display: block;
   width: 20px;
   height: 20px;
+}
+
+.logo:hover {
+  color: #e06733;
 }
 
 .header__item {
@@ -117,16 +121,20 @@ ul li {
   transition: 0.1s all ease-in;
 }
 
-.header__link:hover {
+.header__link_active {
+  color: #E06733;
+  font-weight: 700;
+  cursor: default;
+}
+
+.header__link:not(.header__link_active):hover {
   color: #E06733;
   opacity: 0.8;
-  font-weight: 700;
 }
 /* section welcome  */
 .welcome {
   width: 100%;
   padding: 62px 0 62.64px;
-  background-color: #EDF2EC;
 }
 
 .welcome__row {
@@ -326,12 +334,14 @@ ul li {
   width: 100%;
   padding: 40px 0 115px 0;
 }
+
 .prices .container {
   background-image: url(../img/decor/prices_leafs.png);
   background-repeat: no-repeat;
   background-position: bottom right;
   background-size: 152px 175px;
 }
+
 .prices__row {
   display: flex;
   justify-content: space-between;
@@ -446,6 +456,7 @@ ul li {
   background-position: bottom left;
   background-repeat: no-repeat;
 }
+
 .contact__title {
   margin: 0 0 37px 0;
   font-family: 'Inika';

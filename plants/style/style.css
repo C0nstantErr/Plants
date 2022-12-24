@@ -510,10 +510,6 @@ ul li {
   color: #499a18;
 }
 
-.contact__item-active{
-  color: #717171;
-}
-
 .contact__item::after {
   content: '';
   position: absolute;
@@ -523,10 +519,6 @@ ul li {
   width: 100%;
   height: 1px;
   background-color: #d9d9d9;
-}
-
-.contact__item-active::after {
-  background-color: #717171; 
 }
 
 .contact__info:hover .contact__list {
@@ -545,6 +537,14 @@ ul li {
   background-image: url('../img/icons/contact/arrow_reverse.svg');
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.contact__item:hover {
+  color: #717171;
+}
+
+.contact__item:hover::after {
+  background-color: #717171; 
 }
 /* footer */
 .footer {

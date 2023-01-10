@@ -177,6 +177,7 @@ ul li {
   position: relative;
   width: 158px;
   height: 44px;
+  font-size: 16px;
   line-height: 20px;
   text-align: center;
   letter-spacing: 0.5px;
@@ -391,7 +392,7 @@ ul li {
 .card__title {
   position: relative;
   font-weight: 700;
-  font-size: 18px;
+  font-size: 20px;
   line-height: 50px;
 }
 

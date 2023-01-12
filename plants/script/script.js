@@ -3,7 +3,7 @@ const body = document.body;
 const burger = document.querySelector('.header__burger'); 
 const menu = document.querySelector('.header__list');
 const menuLinks = document.querySelectorAll('.header__link');
-
+const logo = document.querySelector('.logo');
 
 burger.addEventListener('click', onBurgerClick);
 
@@ -31,6 +31,7 @@ function onMenuLinkClick() {
 }
 
 menu.addEventListener('click', closeMenu);
+logo.addEventListener('click', closeMenu);
 
 function closeMenu() {
   burger.classList.remove('active');

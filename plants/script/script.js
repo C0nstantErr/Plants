@@ -4,6 +4,7 @@ const burger = document.querySelector('.header__burger');
 const menu = document.querySelector('.header__list');
 const menuLinks = document.querySelectorAll('.header__link');
 
+
 burger.addEventListener('click', onBurgerClick);
 
 function onBurgerClick() {
@@ -27,5 +28,12 @@ function onMenuLinkClick() {
       burger.classList.remove('locked');
     }
   }
-  
+}
+
+menu.addEventListener('click', closeMenu);
+
+function closeMenu() {
+  burger.classList.remove('active');
+  menu.classList.remove('active');
+  body.classList.remove('locked');
 }

@@ -139,7 +139,7 @@ body.locked {
   .header__burger {
     display: flex;
     flex-direction: column;
-    row-gap: 5px;
+    row-gap: 5.33px;
     width: 40px;
     height: 24px;
     cursor: pointer;

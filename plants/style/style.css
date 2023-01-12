@@ -52,8 +52,18 @@ ul li {
   list-style: none;
 }
 /* ---------------------- */
+body.locked {
+  overflow: hidden;
+}
+
 .bg_wrapper {
   background-color: #EDF2EC;
+}
+
+.container {
+  max-width: 1222px;
+  height: 100%;
+  margin: 0 auto;
 }
 
 .header {
@@ -61,11 +71,28 @@ ul li {
   height: 134px;
   font-family: 'Inika', serif;
 }
+/* От 992рх до 768рх включительно */
+@media (max-width: 992px) {
+  .header {
+    height: 117px;
+  }
+}
+/* От 767рх до 320рх */
+@media (max-width: 767px) {
+  .header {
+    height: 96px;
+  }
+}
 
-.container {
-  max-width: 1222px;
-  height: 100%;
-  margin: 0 auto;
+.header .container {
+  max-width: 1272px;
+  padding: 0 25px;
+}
+/* От 992рх до 768рх включительно */
+@media (max-width: 992px) {
+  .header .container {
+    max-width: 718px;
+  }
 }
 
 .header__navbar {
@@ -75,8 +102,82 @@ ul li {
   align-items: center;
 }
 
+.header__burger {
+  display: none;
+  position: relative;
+  z-index: 10;
+}
+
+.burger:hover .burger__bar,
+.burger.active:hover .burger__bar {
+  background-color: #e06733;
+}
+
+.burger__bar {
+  transition: all 0.2s ease;
+}
+
+.header__burger.active .burger__bar {
+  transform: scale(0);
+}
+
+.header__burger.active .burger__bar:first-child {
+  transform: rotate(45deg);
+  position: absolute;
+  left: -5px;
+  top: 12px;
+}
+
+.header__burger.active .burger__bar:last-child {
+  transform: rotate(-45deg);
+  position: absolute;
+  top: 12px;
+  right: 5px;
+}
+/* От 767рх до 320рх */
+@media (max-width: 767px) {
+  .header__burger {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    width: 40px;
+    height: 24px;
+    cursor: pointer;
+  }
+}
+/* От 767рх до 320рх */
+@media (max-width: 767px) {
+  .burger__bar {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #717171;
+  }
+}
+
 .header__list {
-  font-size: 0;
+  display: flex;
+}
+/* От 767рх до 320рх */
+@media (max-width: 767px) {
+  .header__list {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 96px 0 15px 0;
+    background-color: rgb(255, 255, 255);
+    transition: left 0.2s ease;
+    overflow: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .header__list.active {
+    left: 0;
+  }
 }
 
 .logo,
@@ -84,9 +185,17 @@ ul li {
   display: inline-block;
   color: #010201;
 }
+/* От 767рх до 320рх */
+@media (max-width: 767px)  {
+  .header__link {
+    color: #499a18;
+    font-weight: 700;
+  }
+}
 
 .logo {
   position: relative;
+  z-index: 10;
   padding: 0 0 0 20px;
   line-height: 20px;
   transition: all 0.1s ease-in;
@@ -115,10 +224,30 @@ ul li {
   margin-right: 0;
 }
 
+@media (max-width: 767px) {
+  .header__item {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+  }
+}
+
 .header__link {
   font-size: 16px;
   line-height: 50px;
   transition: 0.1s all ease-in;
+}
+/* От 992рх до 768рх включительно */
+@media (max-width: 992px) {
+  .header__link {
+  line-height: 47px;
+  }
+}
+/* От 768рх до 320рх */
+@media (max-width: 767px) {
+  .header__link {
+    padding: 0 50px;
+  }
 }
 
 .header__link_active {
@@ -137,6 +266,19 @@ ul li {
   padding: 62px 0 62.64px;
 }
 
+/* @media (max-width: 768px) {
+  .welcome {
+    padding: 40px 0 70px 0;
+  }
+} */
+
+/* @media (max-width: 768px) {
+  .welcome .container {
+    max-width: 668px;
+    padding: 0 50px;
+  }
+} */
+
 .welcome__row {
   display: flex;
 }
@@ -148,10 +290,24 @@ ul li {
   background-repeat: no-repeat;
 }
 
+/* @media (max-width: 768px) {
+  .welcome__decor {
+    order: -1;
+  }
+} */
+
 .welcome__info {
   flex: 0 1 549px;
   padding: 36px 0 31.36px 0;
 }
+
+/* @media (max-width: 768px) {
+.welcome__info {
+    order: 2;
+    flex: 0 1 346px;
+    padding: 0;
+  }
+} */
 
 .welcome__title {
   margin: 0 0 42px 0;
@@ -160,6 +316,13 @@ ul li {
   line-height: 50px;
   color: #717171;
 }
+
+/* @media (max-width: 768px) {
+  .welcome__title {
+    font-size: 35px;
+    margin-bottom: 30px;
+  }
+} */
 
 .welcome__title strong {
   color: #499A18;
@@ -172,6 +335,14 @@ ul li {
   line-height: 35px;
   color: #636060;
 }
+
+/* @media (max-width: 768px) {
+  .welcome__text {
+    margin-bottom: 30px;
+    font-size: 16px;
+    line-height: 25px;
+  }
+} */
 
 .welcome__btn {
   position: relative;

@@ -494,14 +494,26 @@ body.locked {
   font-size: 40px;
   line-height: 52px;
 }
+@media (max-width: 992px) {
+  .title {
+    font-size: 35px;
+    line-height: 46px;
+  }
+}
+@media (max-width: 767px) {
+  .title {
+    font-size: 25px;
+    line-height: 33px;
+  }
+}
 
 .about__title {
   margin: 0 0 40px 0;
 }
 @media (max-width: 992px) {
   .about__title {
-    font-size: 35px;
-    line-height: 46px;
+    /* font-size: 35px;
+    line-height: 46px; */
     text-align: center;
   }
 }
@@ -534,15 +546,70 @@ body.locked {
   padding: 40px 0 121px 0;
   background: #edf2ec;
 }
+@media (max-width: 992px) {
+  .service {
+    padding: 60px 0 70px 0;
+  }
+}
+@media (max-width: 767px) {
+  .service {
+    padding: 30px 0 27px 0;
+  }
+}
+
+.service .container {
+  max-width: 1272px;
+  padding: 0 25px;
+}
+@media (max-width: 992px) {
+  .service .container {
+    max-width: 718px;
+  }
+}
 
 .service__header {
   display: flex;
-  max-width: 1007px;
 }
-/* Возможно стоит ограничить потом по ширине service__title вместо header
-отступ у .service__title изначально был 90px, под пиксель перфект уеньшил до 80*/
+@media (max-width: 992px) {
+  .service__header {
+    flex-direction: column;
+  }
+}
+
 .service__title {
-  margin: 0 142px 80px 0;
+  margin: 0 142px 90px 0;
+}
+@media (max-width: 1200px) {
+  .service__title {
+    margin-right: 62px;
+  }
+}
+@media (max-width: 992px) {
+  .service__title {
+    margin: 0 0 40px 0;
+  }
+}
+@media (max-width: 767px) {
+  .service__title {
+    margin: 0 0 35px 0;
+  }
+}
+
+.service__buttons {
+  display: flex;
+  flex-wrap: wrap;
+}
+@media (max-width: 992px) {
+  .service__buttons {
+    margin: 0 0 40px 0;
+    column-gap: 38px;
+  }
+}
+@media (max-width: 767px) {
+  .service__buttons {
+    row-gap: 9px;
+    column-gap: 10px;
+  }
 }
 
 .button {
@@ -559,11 +626,25 @@ body.locked {
 }
 
 .service__button {
+  display: block;
   width: 161px;
   height: 50px;
   margin: 29px 38px 0 0;
   background: #edf2ec;
   flex-shrink: 0; 
+}
+@media (max-width: 992px) {
+  .service__button {
+    margin: 0;
+  }
+}
+@media (max-width: 767px) {
+  .service__button {
+    width: 121px;
+    height: 35px;
+    font-size: 15px;
+    line-height: 20px;
+  }
 }
 
 .service__button:last-child {
@@ -584,15 +665,44 @@ body.locked {
   width: 100%;
 }
 
+@media (max-width: 767px) {
+  .service__content {
+    padding: 0 25px;
+  }
+}
+
 .service__row {
  display: flex;
  flex-flow: row wrap;
+ justify-content: center;
  column-gap: 116px;
  row-gap: 55px;
 }
+@media (max-width: 992px) {
+  .service__row {
+    column-gap: 106px;
+    row-gap: 38px;
+  }
+}
+@media (max-width: 767px) {
+  .service__row {
+    row-gap: 34px;
+  }
+}
+
 .service__item {
   width: 330px;
   height: 450px;
+}
+@media (max-width: 992px) {
+  .service__item {
+    width: 280px; 
+  }
+}
+@media (max-width: 379px) {
+  .service__item {
+    height: auto;
+  }
 }
 
 .service__info {
@@ -601,6 +711,7 @@ body.locked {
   border: 1px solid #e3e1d5;
   border-radius: 0 0 20px 20px;
 }
+
 .service__img {
   max-width: 330px;
   max-height: 350px;
@@ -624,6 +735,11 @@ body.locked {
   color: #717171;
   line-height: 20px;
   text-align: center;
+}
+@media (max-width: 992px) {
+  .service__description {
+    padding: 0 40px 20px 40px;
+  }
 }
 /* Section Prices */
 .prices {

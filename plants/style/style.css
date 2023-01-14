@@ -987,11 +987,53 @@ body.locked {
   background-color: #edf2ec;
   padding: 60px 0 0 0;
 }
+@media (max-width: 992px) {
+  .contact {
+    padding-top: 40px;
+  }
+}
+@media (max-width: 767px) {
+  .contact {
+    padding-top: 25px;
+  }
+}
 
 .contact .container {
-  background-image: url('../img/decor/contact_woman.png');
-  background-position: bottom left;
-  background-repeat: no-repeat;
+  max-width: 1272px;
+  padding: 0 25px;
+}
+@media (max-width: 992px) {
+  .contact .container {
+    max-width: 718px;
+  }
+}
+
+.contact__img { 
+  max-width: 400px;
+  position: relative;
+}
+@media (max-width: 992px) {
+  .contact__img {
+    height: 248px;
+  }
+}
+@media (max-width: 767px) {
+  .contact__img {
+    height: 124px;
+  }
+}
+
+.contact__img-women {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+@media (max-width: 992px) {
+  .contact__img-women{
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+  }
 }
 
 .contact__title {
@@ -1003,12 +1045,37 @@ body.locked {
   color: #499A18;
   text-align: center;
 }
+@media (max-width: 992px) {
+  .contact__title {
+    margin-bottom: 100px;
+  }
+}
+@media (max-width: 767px) {
+  .contact__title {
+    font-size: 25px;
+    line-height: 33px;
+    margin-bottom: 80px;
+  }
+}
 
 .contact__body {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   width: 100%;
   min-height: 402px;
+}
+@media (max-width: 992px) {
+  .contact__body {
+    min-height: auto;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 250px;
+  }
+}
+@media (max-width: 767px) {
+  .contact__body {
+    row-gap: 132px;
+  }
 }
 
 .contact__info {
@@ -1019,6 +1086,17 @@ body.locked {
   background: #d6e7d2;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   cursor: pointer;
+}
+@media (max-width: 992px) {
+  .contact__info {
+    order: -1;
+  }
+}
+@media (max-width: 767px) {
+  .contact__info {
+    width: 300px;
+    padding: 5px 20px;
+  }
 }
 
 .contact__info-text {
@@ -1043,15 +1121,25 @@ body.locked {
   background-repeat: no-repeat;
   background-position: center;
 }
+@media (max-width: 767px) {
+  .contact__info::before {
+    right: 20px;
+  }
+}
 
 .contact__list {
   position: absolute;
   left: 0;
   top: calc(100% + 1px);
   display: none;
-  width: 450px;
+  width: 100%;
   padding: 27px 35px 31px;
   background: #dce9d9;
+}
+@media (max-width: 767px) {
+  .contact__list {
+    padding: 25px 30px;
+  }
 }
 
 .contact__item {

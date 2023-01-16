@@ -66,9 +66,17 @@ body.locked {
 }
 
 .container {
-  max-width: 1222px;
+  /* max-width: 1222px; */
+  max-width: 1272px;
   height: 100%;
+  padding: 0 25px;
   margin: 0 auto;
+}
+/* От 992рх до 768рх включительно */
+@media (max-width: 992px) {
+  .container {
+    max-width: 718px;
+  }
 }
 
 .header {
@@ -89,16 +97,16 @@ body.locked {
   }
 }
 
-.header .container {
+/* .header .container {
   max-width: 1272px;
   padding: 0 25px;
-}
+} */
 /* От 992рх до 768рх включительно */
-@media (max-width: 992px) {
+/* @media (max-width: 992px) {
   .header .container {
     max-width: 718px;
   }
-}
+} */
 
 .header__navbar {
   display: flex;
@@ -283,7 +291,7 @@ body.locked {
   }
 }
 
-.welcome .container {
+/* .welcome .container {
   max-width: 1272px;
   padding: 0 25px;
 }
@@ -291,7 +299,7 @@ body.locked {
   .welcome .container {
     max-width: 718px;
   }
-}
+} */
 
 .welcome__row {
   display: flex;
@@ -435,7 +443,7 @@ body.locked {
   }
 }
 
-.about .container {
+/* .about .container {
   max-width: 1272px;
   padding: 0 25px;
 }
@@ -443,7 +451,7 @@ body.locked {
   .about .container {
     max-width: 718px;
   }
-} 
+}  */
 
 .about__row {
   display: flex;
@@ -566,7 +574,7 @@ body.locked {
   }
 }
 
-.service .container {
+/* .service .container {
   max-width: 1272px;
   padding: 0 25px;
 }
@@ -574,7 +582,7 @@ body.locked {
   .service .container {
     max-width: 718px;
   }
-}
+} */
 
 .service__header {
   display: flex;
@@ -766,16 +774,16 @@ body.locked {
   }
 }
 
-.prices .container {
+/* .prices .container {
   max-width: 1272px;
   padding: 0 25px;
-}
+} */
 /* От 992рх до 768рх включительно */
-@media (max-width: 992px) {
+/* @media (max-width: 992px) {
   .prices .container {
     max-width: 718px;
   }
-}
+} */
 
 .prices__row {
   display: flex;
@@ -999,7 +1007,7 @@ body.locked {
   }
 }
 
-.contact .container {
+/* .contact .container {
   max-width: 1272px;
   padding: 0 25px;
 }
@@ -1007,7 +1015,7 @@ body.locked {
   .contact .container {
     max-width: 718px;
   }
-}
+} */
 
 .contact__img { 
   max-width: 400px;
@@ -1209,7 +1217,7 @@ body.locked {
   }
 }
 
-.footer .container {
+/* .footer .container {
   max-width: 1272px;
   padding: 0 25px;
 }
@@ -1217,7 +1225,7 @@ body.locked {
   .footer .container {
     max-width: 718px;
   }
-}
+} */
 
 .footer__row {
   display: flex;

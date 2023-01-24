@@ -1067,6 +1067,7 @@ body.locked {
 
 .contact__list {
   position: absolute;
+  z-index: 5;
   left: 0;
   top: calc(100% + 1px);
   display: none;
@@ -1103,6 +1104,11 @@ body.locked {
 }
 
 .contact__info:hover .contact__list {
+  display: block;
+  width: 100%;
+}
+
+.contact__info.open:hover .contact__list {
   display: block;
   width: 100%;
 }

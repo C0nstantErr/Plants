@@ -4,6 +4,7 @@ const burger = document.querySelector('.header__burger');
 const menu = document.querySelector('.header__list');
 const menuLinks = document.querySelectorAll('.header__link');
 const logo = document.querySelector('.logo');
+// const contact = document.querySelector('.contact__info');
 
 burger.addEventListener('click', onBurgerClick);
 
@@ -38,6 +39,14 @@ function closeMenu() {
   menu.classList.remove('active');
   body.classList.remove('locked');
 }
+
+// contact.addEventListener('click', openContactList);
+
+// function openContactList() {
+//   if (window.innerWidth <= 992) {
+//     contact.classList.toggle('open');
+//   }
+// }
 
 console.log(`
 Итоговая оценка: 75

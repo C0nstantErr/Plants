@@ -618,6 +618,23 @@ body.locked {
   margin-right: 0;
 }
 
+.service__button.active {
+  background: #e06733;
+  color: #ffffff;
+}
+
+.service__button.locked {
+  pointer-events: none;
+  user-select: none;
+  opacity: 0.5;
+  transition: 0.2s all ease;
+}
+
+.service__button.active:hover {
+  color: #fff;
+  box-shadow: 0px 0px 4px rgba(51, 51, 51, 0.5);
+}
+
 .button:hover {
   color: rgb(224, 103, 51);
   border: 1px solid rgba(224, 103, 51, 0.7);

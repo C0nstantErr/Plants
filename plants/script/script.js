@@ -73,3 +73,43 @@ console.log(`
  - ссылки в адаптивном меню работают, обеспечивая плавную прокрутку по якорям +2 (ссылки работают, но прокрутка с учетом закрытия меню выглядит не так плавно)
  - при клике по ссылке в адаптивном меню адаптивное меню плавно скрывается, также скрытие меню происходит если сделать клик вне данного окна +4
 `)
+
+/*--------------------------------- Part 3 -----------------------------------------------------*/ 
+
+const buttonContainer = document.querySelector('.service__buttons'); // Контейнер где хранятся кнопки
+const serviceButtons = buttonContainer.querySelectorAll('.service__button');  // Коллекция всех кнопок
+
+// Вешаем слушатель по событию "клик" на каждую кнопку, вызываю функцию onServiceButtonClick
+for (let button of serviceButtons) {
+  button.addEventListener('click', onServiceButtonClick);
+}
+
+// функция получает обьект event (e), который содержит инфо о нашем событии
+function onServiceButtonClick(e) {
+  const button = e.target; // Кнопка на которую кликнули
+  let activeButtons = buttonContainer.querySelectorAll('.active'); // Коллекция кнопок с классом active
+
+  /* На кнопку можно кликнуть только в том сучае, если:
+  1) активных кнпок меньше двух. 
+  2) Если сама кнопка активна, и нам нужно вернуть ее в исходное состояние*/ 
+  if (activeButtons.length < 2 || button.classList.contains('active')) {
+    button.classList.toggle('active');
+  }
+
+  // Получаем количество активных кнопок при клике
+  let activeCount = Array.from(serviceButtons).reduce((count, button) => {
+    if(button.classList.contains('active')) return ++count;
+    else return count; 
+  }, 0)
+// Если их уже две - блокируем третью, иначе - снимаем блок если у кого-то есть
+  if (activeCount == 2) {
+    for (let item of serviceButtons) {
+      if (!item.classList.contains('active')) item.classList.add('locked');
+    }
+  } else {
+    for (let item of serviceButtons) {
+      if(item.classList.contains('locked')) item.classList.remove('locked');
+    }
+  }
+}
+

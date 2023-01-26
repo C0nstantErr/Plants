@@ -78,24 +78,22 @@ console.log(`
 
 const buttonContainer = document.querySelector('.service__buttons'); // Контейнер где хранятся кнопки
 const serviceButtons = buttonContainer.querySelectorAll('.service__button');  // Коллекция всех кнопок
-
+const serviceCards = document.querySelectorAll('.service__item'); // Колекция всех карточек
 // Вешаем слушатель по событию "клик" на каждую кнопку, вызываю функцию onServiceButtonClick
 for (let button of serviceButtons) {
   button.addEventListener('click', onServiceButtonClick);
 }
-
 // функция получает обьект event (e), который содержит инфо о нашем событии
 function onServiceButtonClick(e) {
   const button = e.target; // Кнопка на которую кликнули
-  let activeButtons = buttonContainer.querySelectorAll('.active'); // Коллекция кнопок с классом active
-
+  let activeButtons = buttonContainer.querySelectorAll('.active'); // Коллекция кнопок с классом active до клика
   /* На кнопку можно кликнуть только в том сучае, если:
   1) активных кнпок меньше двух. 
   2) Если сама кнопка активна, и нам нужно вернуть ее в исходное состояние*/ 
   if (activeButtons.length < 2 || button.classList.contains('active')) {
+    blurCards(button, serviceButtons, serviceCards);
     button.classList.toggle('active');
   }
-
   // Получаем количество активных кнопок при клике
   let activeCount = Array.from(serviceButtons).reduce((count, button) => {
     if(button.classList.contains('active')) return ++count;
@@ -113,3 +111,26 @@ function onServiceButtonClick(e) {
   }
 }
 
+function blurCards(currentButton, allButton, cards) {
+  let buttonArr = Array.from(allButton);
+  // массив уже активных кнопок
+  let activeBtn = buttonArr.filter((button) => {
+    return button.classList.contains('active');
+  });
+  // если активных кнопок нет, либо активная и есть та кнопка на которую мы кикаем и она всего одна
+  if (!activeBtn.length || (activeBtn[0].dataset.name === currentButton.dataset.name && activeBtn.length < 2)) {
+    // переключаем класс "блюр" для всех карточек у которых значение атрибута data-parent отлич. от data-name у тек. кнопки
+    for (let card of cards) {
+      if(card.dataset.parent !== currentButton.dataset.name) {
+        card.classList.toggle('blur');
+      }
+    }
+  } else {
+    // если активная кнопка уже есть: переключаем блюр у карточек с таким же аттрибутом data-parent как у тек.кнопки
+    for (let card of cards) {
+      if (card.dataset.parent === currentButton.dataset.name) {
+        card.classList.toggle('blur');
+      }
+    }
+  }
+}

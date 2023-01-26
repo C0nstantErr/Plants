@@ -688,6 +688,10 @@ body.locked {
   }
 }
 
+.service__item.blur {
+  filter: blur(2px);
+}
+
 .service__info {
   width: 100%;
   min-height: 100px;

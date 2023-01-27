@@ -134,3 +134,22 @@ function blurCards(currentButton, allButton, cards) {
     }
   }
 }
+/*---------------------------------  Prices  -------------------------*/ 
+const tariffs = document.querySelector('.prices__tariffs');
+const pricesCards = tariffs.querySelectorAll('.card');
+const cardsDropDown = tariffs.querySelectorAll('.card__title');
+
+cardsDropDown.forEach(item => item.addEventListener('click', showInfo));
+
+function showInfo(e) {
+  let curretButtonStatus = e.target.classList.contains('open');
+  cardsDropDown.forEach(card => {
+    card.classList.remove('open');
+    pricesCards.forEach(card => card.classList.remove('bg-open'));
+  })
+  if(!curretButtonStatus) {
+    e.target.classList.add('open');
+    let index = Array.from(cardsDropDown).findIndex(card => card.classList.contains('open'));
+    pricesCards[index].classList.add('bg-open')
+  }
+}

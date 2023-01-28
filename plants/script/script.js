@@ -75,7 +75,7 @@ console.log(`
 `)
 
 /*--------------------------------- Part 3 -----------------------------------------------------*/ 
-
+/*---------------------------------  Services  -------------------------*/ 
 const buttonContainer = document.querySelector('.service__buttons'); // Контейнер где хранятся кнопки
 const serviceButtons = buttonContainer.querySelectorAll('.service__button');  // Коллекция всех кнопок
 const serviceCards = document.querySelectorAll('.service__item'); // Колекция всех карточек
@@ -152,4 +152,74 @@ function showInfo(e) {
     let index = Array.from(cardsDropDown).findIndex(card => card.classList.contains('open'));
     pricesCards[index].classList.add('bg-open')
   }
+}
+/*---------------------------------  Contacts  -------------------------*/ 
+const contact = document.querySelector('.contact');
+const template = contact.querySelector('.contact__adress').cloneNode(true);
+const contactFIeld = contact.querySelector('.contact__info');
+const contactList = contact.querySelector('.contact__list');
+const contactCity = contactList.querySelectorAll('.contact__item');
+const adresses = [
+  {
+    city: "Canandaigua, NY",
+    phone: "+1 585 393 0001",
+    adress: "151 Charlotte Street"
+  },
+
+  {
+    city: "New York City",
+    phone: "+1 212 456 0002",
+    adress: "9 East 91st Street"
+  },
+
+  {
+    city: "Yonkers, NY",
+    phone: "+1 914 678 0003",
+    adress: "511 Warburton Ave"
+  },
+
+  {
+    city: "Sherrill, NY",
+    phone: "+1 315 908 0004",
+    adress: "14 WEST Noyes BLVD"
+  },
+];
+
+contactCity.forEach(contact => contact.addEventListener('click', showContact));
+
+function showContact(e) {
+  let currentInfo = contact.querySelector('.contact__adress');
+  let city = e.target;
+  let card = createContact(template, adresses, city);
+
+  card.classList.add('selected');
+  contactFIeld.classList.add('no-hover'); //при выборе города чтоб список скрывался
+  setTimeout(() => {
+    contactFIeld.classList.remove('no-hover')
+  }, 100)
+
+  currentInfo.replaceWith(card); 
+}
+
+function createContact(template, adresses, city) {
+  const contactCard = template.cloneNode(true);
+  const cityName = city.textContent; 
+  const contactButton = contactCard.querySelector('.contact__card-button');
+  const contacts = adresses.find(item => item.city === cityName);
+  
+  for(let key in contacts) {
+    let field = Array.from(contactCard.querySelectorAll('[data-name]')).find(elem => elem.dataset.name === key);
+    field.innerHTML = contacts[key];
+  }
+
+  setPhoneNumber(contactButton, contacts);
+  return contactCard;
+}
+
+function setPhoneNumber(link, adressInfo) {
+  let phone; 
+  for (let key in adressInfo) {
+    if (key === 'phone') phone = adressInfo[key];
+  }
+  link.setAttribute('href', `tel:${phone}`);
 }

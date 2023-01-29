@@ -65,14 +65,14 @@
           <div class="service__header">
             <h2 class="service__title title">Service and our <br> projects</h2>
             <div class="service__buttons">
-              <button class="service__button button">Gardens</button>
-              <button class="service__button button">Lawn</button>
-              <button class="service__button button">Planting</button>
+              <button class="service__button button" data-name="garden">Gardens</button>
+              <button class="service__button button" data-name="lawn">Lawn</button>
+              <button class="service__button button" data-name="planting">Planting</button>
             </div>
           </div>
           <div class="service__content">
             <div class="service__row">
-              <div class="service__item">
+              <div class="service__item" data-parent="garden">
                 <div class="service__img">
                   <picture>
                     <source media="(max-width: 992px)" srcset="./img/service/768/1_1.jpg">
@@ -84,7 +84,7 @@
                   <p class="service__description">Lorem Ipsum has been the industry</p>
                 </div>
               </div>
-              <div class="service__item">
+              <div class="service__item" data-parent="planting">
                 <div class="service__img">
                   <picture>
                     <source media="(max-width: 992px)" srcset="./img/service/768/2_1.jpg">
@@ -96,7 +96,7 @@
                   <p class="service__description">Lorem Ipsum has been the industry</p>
                 </div>
               </div>
-              <div class="service__item">
+              <div class="service__item" data-parent="lawn">
                 <div class="service__img">
                   <picture>
                     <source media="(max-width: 992px)" srcset="./img/service/768/3_1.jpg">
@@ -108,7 +108,7 @@
                   <p class="service__description">Lorem Ipsum has been the industry</p>
                 </div>
               </div>
-              <div class="service__item">
+              <div class="service__item" data-parent="planting">
                 <div class="service__img">
                   <picture>
                     <source media="(max-width: 992px)" srcset="./img/service/768/4_1.jpg">
@@ -120,7 +120,7 @@
                   <p class="service__description">Lorem Ipsum has been the industry</p>
                 </div>
               </div>
-              <div class="service__item">
+              <div class="service__item" data-parent="garden">
                 <div class="service__img">
                   <picture>
                     <source media="(max-width: 992px)" srcset="./img/service/768/5_1.jpg">
@@ -132,7 +132,7 @@
                   <p class="service__description">Lorem Ipsum has been the industry</p>
                 </div>
               </div>
-              <div class="service__item">
+              <div class="service__item" data-parent="planting">
                 <div class="service__img">
                   <picture>
                     <source media="(max-width: 992px)" srcset="./img/service/768/6_1.jpg">
@@ -156,12 +156,27 @@
               <div class="prices__tariffs">
                 <div class="prices__item card">
                   <h3 class="card__title">Basics</h3>
+                  <div class="card__accordion">
+                    <div class="card__info">Release of Letraset sheets containing Lorem Ipsum passages, and more recently</div>
+                    <div class="card__price"><span>$15</span> / per hour</div>
+                    <a href="#contact" class="card__button">Order</a>
+                  </div>
                 </div>
                 <div class="prices__item card">
                   <h3 class="card__title">Standard</h3>
+                  <div class="card__accordion">
+                    <div class="card__info">Release of Letraset sheets containing Lorem Ipsum passages, and more recently</div>
+                    <div class="card__price"><span>$25</span> / per hour</div>
+                    <a href="#contact"  class="card__button">Order</a>
+                  </div>
                 </div>
                 <div class="prices__item card">
                   <h3 class="card__title">Pro care</h3>
+                  <div class="card__accordion">
+                    <div class="card__info">Release of Letraset sheets containing Lorem Ipsum passages, and more recently</div>
+                    <div class="card__price"><span>$35</span> / per hour</div>
+                    <a href="#contact"  class="card__button">Order</a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -184,13 +199,32 @@
                 <img class="contact__img-women" src="./img/decor/contact_woman.png" alt="contact us">
               </picture>
             </div>
-            <div class="contact__info"> <span class="contact__info-text">City</span>
-              <ul class="contact__list">
-                <li class="contact__item">Canandaigua, NY</li>
-                <li class="contact__item">New York City</li>
-                <li class="contact__item">Yonkers, NY</li>
-                <li class="contact__item">Sherrill, NY</li>
-              </ul>
+            <div class="contact__wrapper">
+              <div class="contact__info"> <span class="contact__info-text">City</span>
+                <ul class="contact__list">
+                  <li class="contact__item">Canandaigua, NY</li>
+                  <li class="contact__item">New York City</li>
+                  <li class="contact__item">Yonkers, NY</li>
+                  <li class="contact__item">Sherrill, NY</li>
+                </ul>
+              </div>
+              <div class="contact__adress adress">
+                <div class="adress__info">
+                  <div class="adress__info-name">
+                    <div class="adress__name">City:</div>
+                    <div class="adress__name">Phone:</div>
+                    <div class="adress__name">Office adress:</div>
+                  </div>
+                  <div class="adress__info-value">
+                    <div class="adress__value" data-name="city"></div>
+                    <div class="adress__value" data-name="phone"></div>
+                    <div class="adress__value" data-name="adress"></div>
+                  </div>
+                </div>
+                <div class="contact-button__wrapper">
+                  <a class="contact__card-button" href="#">Call us</a>
+                </div>
+              </div>
             </div>
           </div>
         </div>

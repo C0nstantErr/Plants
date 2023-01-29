@@ -38,38 +38,160 @@ function closeMenu() {
   menu.classList.remove('active');
   body.classList.remove('locked');
 }
+/*--------------------------------- Part 3 -----------------------------------------------------*/ 
+/*---------------------------------  Services  -------------------------*/ 
+const buttonContainer = document.querySelector('.service__buttons'); // Контейнер где хранятся кнопки
+const serviceButtons = buttonContainer.querySelectorAll('.service__button');  // Коллекция всех кнопок
+const serviceCards = document.querySelectorAll('.service__item'); // Колекция всех карточек
+// Вешаем слушатель по событию "клик" на каждую кнопку, вызываю функцию onServiceButtonClick
+for (let button of serviceButtons) {
+  button.addEventListener('click', onServiceButtonClick);
+}
+// функция получает обьект event (e), который содержит инфо о нашем событии
+function onServiceButtonClick(e) {
+  const button = e.target; // Кнопка на которую кликнули
+  let activeButtons = buttonContainer.querySelectorAll('.active'); // Коллекция кнопок с классом active до клика
+  /* На кнопку можно кликнуть только в том сучае, если:
+  1) активных кнпок меньше двух. 
+  2) Если сама кнопка активна, и нам нужно вернуть ее в исходное состояние*/ 
+  if (activeButtons.length < 2 || button.classList.contains('active')) {
+    blurCards(button, serviceButtons, serviceCards);
+    button.classList.toggle('active');
+  }
+  // Получаем количество активных кнопок при клике
+  let activeCount = Array.from(serviceButtons).reduce((count, button) => {
+    if(button.classList.contains('active')) return ++count;
+    else return count; 
+  }, 0)
+// Если их уже две - блокируем третью, иначе - снимаем блок если у кого-то есть
+  if (activeCount == 2) {
+    for (let item of serviceButtons) {
+      if (!item.classList.contains('active')) item.classList.add('locked');
+    }
+  } else {
+    for (let item of serviceButtons) {
+      if(item.classList.contains('locked')) item.classList.remove('locked');
+    }
+  }
+}
+
+function blurCards(currentButton, allButton, cards) {
+  let buttonArr = Array.from(allButton);
+  // массив уже активных кнопок
+  let activeBtn = buttonArr.filter((button) => {
+    return button.classList.contains('active');
+  });
+  // если активных кнопок нет, либо активная и есть та кнопка на которую мы кикаем и она всего одна
+  if (!activeBtn.length || (activeBtn[0].dataset.name === currentButton.dataset.name && activeBtn.length < 2)) {
+    // переключаем класс "блюр" для всех карточек у которых значение атрибута data-parent отлич. от data-name у тек. кнопки
+    for (let card of cards) {
+      if(card.dataset.parent !== currentButton.dataset.name) {
+        card.classList.toggle('blur');
+      }
+    }
+  } else {
+    // если активная кнопка уже есть: переключаем блюр у карточек с таким же аттрибутом data-parent как у тек.кнопки
+    for (let card of cards) {
+      if (card.dataset.parent === currentButton.dataset.name) {
+        card.classList.toggle('blur');
+      }
+    }
+  }
+}
+/*---------------------------------  Prices  -------------------------*/ 
+const tariffs = document.querySelector('.prices__tariffs');
+const pricesCards = tariffs.querySelectorAll('.card');
+const cardsDropDown = tariffs.querySelectorAll('.card__title');
+
+cardsDropDown.forEach(item => item.addEventListener('click', showInfo));
+
+function showInfo(e) {
+  let curretButtonStatus = e.target.classList.contains('open');
+  cardsDropDown.forEach(card => {
+    card.classList.remove('open');
+    pricesCards.forEach(card => card.classList.remove('bg-open'));
+  })
+  if(!curretButtonStatus) {
+    e.target.classList.add('open');
+    let index = Array.from(cardsDropDown).findIndex(card => card.classList.contains('open'));
+    pricesCards[index].classList.add('bg-open')
+  }
+}
+/*---------------------------------  Contacts  -------------------------*/ 
+const contact = document.querySelector('.contact');
+const template = contact.querySelector('.contact__adress').cloneNode(true);
+const contactFIeld = contact.querySelector('.contact__info');
+const contactList = contact.querySelector('.contact__list');
+const contactCity = contactList.querySelectorAll('.contact__item');
+const adresses = [
+  {
+    city: "Canandaigua, NY",
+    phone: "+1 585 393 0001",
+    adress: "151 Charlotte Street"
+  },
+
+  {
+    city: "New York City",
+    phone: "+1 212 456 0002",
+    adress: "9 East 91st Street"
+  },
+
+  {
+    city: "Yonkers, NY",
+    phone: "+1 914 678 0003",
+    adress: "511 Warburton Ave"
+  },
+
+  {
+    city: "Sherrill, NY",
+    phone: "+1 315 908 0004",
+    adress: "14 WEST Noyes BLVD"
+  },
+];
+
+contactCity.forEach(contact => contact.addEventListener('click', showContact));
+
+function showContact(e) {
+  let currentInfo = contact.querySelector('.contact__adress');
+  let city = e.target;
+  let card = createContact(template, adresses, city);
+  let contactCityText = contact.querySelector('.contact__info-text');
+
+  card.classList.add('selected');
+  contactFIeld.classList.add('no-hover'); //при выборе города чтоб список скрывался
+  setTimeout(() => {
+    contactFIeld.classList.remove('no-hover')
+  }, 100)
+
+  currentInfo.replaceWith(card); 
+  contactCityText.textContent = city.textContent;
+}
+
+function createContact(template, adresses, city) {
+  const contactCard = template.cloneNode(true);
+  const cityName = city.textContent; 
+  const contactButton = contactCard.querySelector('.contact__card-button');
+  const contacts = adresses.find(item => item.city === cityName);
+  
+  for(let key in contacts) {
+    let field = Array.from(contactCard.querySelectorAll('[data-name]')).find(elem => elem.dataset.name === key);
+    field.innerHTML = contacts[key];
+  }
+
+  setPhoneNumber(contactButton, contacts);
+  return contactCard;
+}
+
+function setPhoneNumber(link, adressInfo) {
+  let phone; 
+  for (let key in adressInfo) {
+    if (key === 'phone') phone = adressInfo[key];
+  }
+  link.setAttribute('href', `tel:${phone}`);
+}
 
 console.log(`
-Итоговая оценка: 75
-
-1. Вёрстка соответствует макету. Ширина экрана 768px (22.5/24)
- - блок header +2
- - секция welcome +3
- - секция about +4
- - секция service +4
- - секция prices +4
- - секция contacts +4 (есть смещение каринки по горизонтали в пределах 10рх)
- - блок footer + 1,5 (баллы стоит снять за отличия от макета. Никто не просил дбавлять иконки github и rs school)
-
-2. Вёрстка соответствует макету. Ширина экрана 380px (22,5/24)
- - блок header +2 (смещение в пределах 10рх)
- - секция welcome +3
- - секция about +4
- - секция service +4
- - секция prices +4
- - секция contacts +4
- - блок footer + 1,5 (минус баллы по той же причине что и для 768рх)
-
- 3. Ни на одном из разрешений до 320px включительно не появляется горизонтальная полоса прокрутк с сохранением контента. (15/15)
- - нет полосы прокрутки при ширине страницы от 1440рх до 380px +7
- - нет полосы прокрутки при ширине страницы от 380px до 320рх +8
-
-4. На ширине экрана 380рх и меньше реализовано адаптивное меню (20/22)
-(Допускается появление адаптивного меню на ширине более 380, но не допускается на ширине более 770px) 
- - при ширине страницы 380рх панель навигации скрывается, появляется бургер-иконка +2
- - при нажатии на бургер-иконку плавно появляется адаптивное меню +4
- - адаптивное меню соответствует цветовой схеме макета +4
- - при нажатии на крестик адаптивное меню плавно скрывается уезжая за экран +4
- - ссылки в адаптивном меню работают, обеспечивая плавную прокрутку по якорям +2 (ссылки работают, но прокрутка с учетом закрытия меню выглядит не так плавно)
- - при клике по ссылке в адаптивном меню адаптивное меню плавно скрывается, также скрытие меню происходит если сделать клик вне данного окна +4
+  Итоговая оценка: 100
+  1. аккордиону в секции тарифы не хватает плавности появления, хотя этого не было в ТЗ.  
+  2. в секции "контакты", так как выпадающий список был реализован через :hover, на мобилках нужен дополнительный клик вне списка, чтоб закрыть его. Выглядит не очень.
 `)

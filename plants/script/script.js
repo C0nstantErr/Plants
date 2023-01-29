@@ -192,6 +192,25 @@ function setPhoneNumber(link, adressInfo) {
 
 console.log(`
   Итоговая оценка: 100
-  1. аккордиону в секции тарифы не хватает плавности появления, хотя этого не было в ТЗ.  
-  2. в секции "контакты", так как выпадающий список был реализован через :hover, на мобилках нужен дополнительный клик вне списка, чтоб закрыть его. Выглядит не очень.
+  1. аккордиону в секции тарифы не хватает плавности появления, хотя этого не было в ТЗ.
 `)
+
+/*---------------------------------  Contacts- menu on touchscreen  -------------------------*/ 
+const deviceWidth = parseInt(window.innerWidth);
+const deviceHeight = parseInt(window.innerHeight);
+const isTouchScreen = (deviceWidth <= 992 || deviceHeight <=992);
+
+
+if (isTouchScreen) {
+  contact.addEventListener('click', (e) => {
+    let target = e.target; 
+    do {
+      if(target == contactFIeld) {
+        contactFIeld.classList.toggle('touched');
+        return;
+      }
+      target = target.parentNode; //проверяет есlи мы кликнули по дочернему элементу, нам тоже нужно приметить стили. в конечном итоге вернет null;
+    } while (target);
+    contactFIeld.classList.remove('touched');
+  })
+}

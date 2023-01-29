@@ -990,6 +990,11 @@ body.locked {
   cursor: pointer;
 }
 
+.card__button:active{
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -moz-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
 .card__button:hover {
   color: #e06733;
 }
@@ -1283,30 +1288,47 @@ body.locked {
   transition: all 0.17s ease-in;
 }
 
-.contact__info:not(.no-hover):hover .contact__list {
-  display: block;
-  width: 100%;
+@media(hover: hover) {
+  .contact__info:hover {
+    box-shadow: none;
+    background: #C1E698;
+    border: 1px solid #D6E7D2;
+  }
+  .contact__info:not(.no-hover):hover .contact__list {
+    display: block;
+    width: 100%;
+  }
+  .contact__info:hover::before {
+    background-color: #8ba07e;
+    background-image: url('../img/icons/contact/arrow_reverse.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .contact__item:hover {
+    color: #717171;
+  }
+  
+  .contact__item:hover::after {
+    background-color: #71717177; 
+  }
 }
 
-.contact__info:hover {
-  box-shadow: none;
-  background: #C1E698;
-  border: 1px solid #D6E7D2;
-}
-
-.contact__info:hover::before {
-  background-color: #8ba07e;
-  background-image: url('../img/icons/contact/arrow_reverse.svg');
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.contact__item:hover {
-  color: #717171;
-}
-
-.contact__item:hover::after {
-  background-color: #71717177; 
+@media (hover: none) and (pointer: coarse) {
+  .contact__info.touched .contact__list {
+    display: block;
+    width: 100%;
+  }
+  .contact__info.touched {
+    box-shadow: none;
+    background: #C1E698;
+    border: 1px solid #D6E7D2;
+  }
+  .contact__info.touched::before {
+    background-color: #8ba07e;
+    background-image: url('../img/icons/contact/arrow_reverse.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+  }
 }
 
 .contact__adress  {
@@ -1334,17 +1356,36 @@ body.locked {
 .contact__adress.selected {
   display: flex;
 }
-.contact__info:hover + .contact__adress {
-  bottom: 47px;
-}
-@media (max-width: 992px) {
+
+@media (hover: hover) {
   .contact__info:hover + .contact__adress {
-    bottom: 60px;
+    bottom: 47px;
+  }
+  @media (max-width: 992px) {
+    .contact__info:hover + .contact__adress {
+      bottom: 60px;
+    }
+  }
+  @media (max-width: 767px) {
+    .contact__info:hover + .contact__adress  {
+      bottom: 49px;
+    }
   }
 }
-@media (max-width: 767px) {
-  .contact__info:hover + .contact__adress  {
-    bottom: 49px;
+
+@media (hover: none) and (pointer: coarse) {
+  .contact__info.touched + .contact__adress {
+    bottom: 47px;
+  }
+  @media (max-width: 992px) {
+    .contact__info.touched + .contact__adress {
+      bottom: 60px;
+    }
+  }
+  @media (max-width: 767px) {
+    .contact__info.touched + .contact__adress  {
+      bottom: 49px;
+    }
   }
 }
 
